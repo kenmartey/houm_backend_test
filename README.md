@@ -38,3 +38,9 @@ POKEMON_BASE_URL="https://pokeapi.co/api/v2"
 ```bash
 python main.py
 ```
+
+### Run test cases
+
+```bash
+pytest test.py  
+```

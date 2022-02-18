@@ -1,0 +1,8 @@
+# virtual env files
+env_houm
+
+# .env files
+.env
+
+# cache files
+__pycache__/

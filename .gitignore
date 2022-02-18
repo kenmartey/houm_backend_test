@@ -6,3 +6,8 @@ env_houm
 
 # cache files
 __pycache__/
+
+# ignore xml files
+.xml
+
+.idea/

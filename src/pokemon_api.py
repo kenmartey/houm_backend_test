@@ -29,7 +29,7 @@ class PokemonAPI:
         count = 0
         for i in names:
             if "a" in i and "at" in i:
-                if i.count("a") > 1:
+                if i.count("a") >= 2:
                     count += 1
         return count
 
@@ -44,6 +44,32 @@ class PokemonAPI:
         breeds.remove('raichu')
         return len(breeds)
 
+    def get_first_gen_pokemon_weights(self):
+        """Helper function: 
+            Loop through first gen fighting type and grab weights
+        """
+        fighting_types = ["mankey", "primeape", "machop", "machoke",
+                          "machamp", "hitmonlee", "hitmonchan", "poliwrath"]
+        weights = []
+        for i in fighting_types:
+            request_call = f"{self.base_url}/pokemon/{i}"
+            response = requests.get(f"{request_call}", headers=self.header)
+            response = response.json()
+            weights.append(response["weight"])
+        return weights
+
+    def get_max_and_min_weight(self):
+        """ Grab max and min weights of first genenration
+            Pokemon.
+        """
+        max_min_pokemon_weight = []
+        pokemon_weights = self.get_first_gen_pokemon_weights()
+        max_min_pokemon_weight.insert(0, max(pokemon_weights))
+        max_min_pokemon_weight.insert(1, min(pokemon_weights))
+        return max_min_pokemon_weight
+
+
 pokemon = PokemonAPI()
 print(pokemon.check_string_letter_repititon())
 print(pokemon.pokemon_breed())
+print(pokemon.get_max_and_min_weight())

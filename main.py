@@ -1,6 +1,4 @@
-import pokemon_api
-
-
+from src import pokemon_api
 def main():
 
     if __name__ == '__main__':

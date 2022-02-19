@@ -17,7 +17,7 @@ source venv/bin/activate
 ### Clone the project
 
 ```bash
-git clone ...
+git clone https://github.com/kenmartey/houm_backend_test.git
 ```
 
 #### cd into project and install requirements.txt
